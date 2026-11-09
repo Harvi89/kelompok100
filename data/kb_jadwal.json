@@ -63,3 +63,86 @@
     }
   ]
 }
+
+{
+  "knowledge_base": [
+    {
+      "id": "akademik_001",
+      "category": "krs",
+      "content": "Kartu Rencana Studi atau KRS merupakan dokumen yang berisi daftar mata kuliah yang dipilih mahasiswa untuk ditempuh pada semester tertentu.",
+      "patterns": [
+        "Apa itu KRS?",
+        "Apa kepanjangan KRS?",
+        "Bagaimana cara mengisi KRS?",
+        "Kapan mahasiswa mengisi KRS?",
+        "Pengertian kartu rencana studi"
+      ],
+      "answer": "KRS adalah Kartu Rencana Studi yang berisi mata kuliah pilihan mahasiswa untuk semester berjalan. Pengisian dilakukan melalui sistem akademik sesuai periode yang ditetapkan kampus."
+    },
+    {
+      "id": "akademik_002",
+      "category": "khs",
+      "content": "Kartu Hasil Studi atau KHS merupakan dokumen yang menampilkan nilai mata kuliah yang telah ditempuh mahasiswa dalam satu semester.",
+      "patterns": [
+        "Apa itu KHS?",
+        "Apa kepanjangan KHS?",
+        "Di mana melihat nilai semester?",
+        "Bagaimana cara melihat hasil studi?",
+        "Pengertian kartu hasil studi"
+      ],
+      "answer": "KHS adalah Kartu Hasil Studi yang menampilkan nilai mata kuliah mahasiswa dalam satu semester. KHS dapat diperiksa melalui sistem akademik kampus."
+    },
+    {
+      "id": "akademik_003",
+      "category": "sks",
+      "content": "SKS atau Satuan Kredit Semester merupakan satuan yang digunakan untuk menunjukkan beban belajar mahasiswa dalam suatu mata kuliah.",
+      "patterns": [
+        "Apa itu SKS?",
+        "Apa kepanjangan SKS?",
+        "Apa fungsi SKS?",
+        "Berapa SKS satu mata kuliah?",
+        "Pengertian satuan kredit semester"
+      ],
+      "answer": "SKS adalah Satuan Kredit Semester yang digunakan untuk mengukur beban belajar suatu mata kuliah. Jumlah SKS setiap mata kuliah dapat berbeda."
+    },
+    {
+      "id": "akademik_004",
+      "category": "ipk",
+      "content": "Indeks Prestasi Kumulatif atau IPK merupakan nilai rata-rata prestasi akademik mahasiswa dari seluruh semester yang telah ditempuh.",
+      "patterns": [
+        "Apa itu IPK?",
+        "Apa kepanjangan IPK?",
+        "Bagaimana cara menghitung IPK?",
+        "Apa perbedaan IP dan IPK?",
+        "Pengertian indeks prestasi kumulatif"
+      ],
+      "answer": "IPK adalah Indeks Prestasi Kumulatif yang menggambarkan pencapaian akademik mahasiswa secara keseluruhan selama masa studi."
+    },
+    {
+      "id": "akademik_005",
+      "category": "uts",
+      "content": "Ujian Tengah Semester atau UTS merupakan evaluasi pembelajaran yang dilaksanakan pada pertengahan semester.",
+      "patterns": [
+        "Apa itu UTS?",
+        "Kapan ujian tengah semester?",
+        "Apa kepanjangan UTS?",
+        "Informasi ujian tengah semester"
+      ],
+      "answer": "UTS adalah Ujian Tengah Semester yang dilaksanakan untuk mengevaluasi pemahaman mahasiswa terhadap materi perkuliahan pada pertengahan semester. Jadwal resminya mengikuti kalender akademik."
+    },
+    {
+      "id": "akademik_006",
+      "category": "uas",
+      "content": "Ujian Akhir Semester atau UAS merupakan evaluasi pembelajaran yang dilaksanakan pada akhir semester.",
+      "patterns": [
+        "Apa itu UAS?",
+        "Kapan ujian akhir semester?",
+        "Apa kepanjangan UAS?",
+        "Informasi ujian akhir semester"
+      ],
+      "answer": "UAS adalah Ujian Akhir Semester yang dilaksanakan pada akhir semester untuk mengevaluasi pemahaman mahasiswa terhadap materi perkuliahan."
+    }
+  ]
+}
+
+
