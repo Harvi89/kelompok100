@@ -1,0 +1,65 @@
+
+{
+  "knowledge_base": [
+    {
+      "id": "jadwal_001",
+      "category": "jadwal_kuliah",
+      "content": "Jadwal kuliah merupakan informasi mengenai hari, jam, mata kuliah, dosen pengampu, dan ruangan perkuliahan mahasiswa Informatika.",
+      "patterns": [
+        "Apa itu jadwal kuliah?",
+        "Bagaimana cara melihat jadwal kuliah?",
+        "Di mana saya bisa mengetahui jadwal perkuliahan?",
+        "Informasi jadwal mahasiswa Informatika"
+      ],
+      "answer": "Jadwal kuliah memuat informasi hari, jam, mata kuliah, dosen pengampu, dan ruangan. Silakan periksa jadwal resmi dari program studi Informatika."
+    },
+    {
+      "id": "jadwal_002",
+      "category": "mata_kuliah",
+      "content": "Mata kuliah adalah materi pembelajaran yang wajib atau pilihan untuk ditempuh mahasiswa selama masa studi.",
+      "patterns": [
+        "Apa saja mata kuliah Informatika?",
+        "Daftar mata kuliah Informatika",
+        "Mata kuliah apa yang dipelajari mahasiswa Informatika?",
+        "Informasi mata kuliah"
+      ],
+      "answer": "Daftar mata kuliah dapat dilihat pada kurikulum program studi Informatika. Setiap semester memiliki mata kuliah yang berbeda."
+    },
+    {
+      "id": "jadwal_003",
+      "category": "dosen_pengampu",
+      "content": "Dosen pengampu adalah tenaga pengajar yang bertanggung jawab memberikan materi dan membimbing mahasiswa dalam mata kuliah tertentu.",
+      "patterns": [
+        "Siapa dosen pengampu mata kuliah?",
+        "Bagaimana mengetahui nama dosen?",
+        "Siapa yang mengajar mata kuliah?",
+        "Informasi dosen Informatika"
+      ],
+      "answer": "Informasi dosen pengampu dapat dilihat pada jadwal resmi perkuliahan atau sistem akademik kampus."
+    },
+    {
+      "id": "jadwal_004",
+      "category": "ruangan_kuliah",
+      "content": "Ruangan kuliah merupakan tempat pelaksanaan kegiatan belajar mengajar sesuai jadwal yang telah ditentukan.",
+      "patterns": [
+        "Di mana lokasi kelas kuliah?",
+        "Bagaimana mengetahui ruangan kuliah?",
+        "Ruang kuliah saya di mana?",
+        "Informasi ruang kelas"
+      ],
+      "answer": "Informasi ruangan kuliah dapat dilihat melalui jadwal resmi perkuliahan. Pastikan memeriksa ruangan sebelum kelas dimulai."
+    },
+    {
+      "id": "jadwal_005",
+      "category": "perubahan_jadwal",
+      "content": "Perubahan jadwal kuliah dapat terjadi karena penyesuaian kegiatan akademik, ketersediaan dosen, atau kondisi tertentu.",
+      "patterns": [
+        "Apakah jadwal kuliah bisa berubah?",
+        "Bagaimana mengetahui perubahan jadwal?",
+        "Kuliah saya dipindahkan bagaimana?",
+        "Informasi perubahan jadwal kuliah"
+      ],
+      "answer": "Perubahan jadwal biasanya diinformasikan melalui dosen, program studi, atau media informasi resmi kampus."
+    }
+  ]
+}
