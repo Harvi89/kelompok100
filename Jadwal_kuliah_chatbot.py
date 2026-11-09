@@ -68,3 +68,17 @@ def generate_response(intent):
 def get_response(user_input):
      intent = match_intent(user_input)
      return generate_response(intent) 
+
+import random
+
+def run_chatbot():
+    print("Chatbot FAQ Kampus (ketik 'keluar' untuk berhenti)")
+    while True:
+        user_input = input("Anda: ")
+        response = get_response(user_input)
+        print("Bot :", response)
+        if match_intent(user_input) == "goodbye":
+            break
+
+if __name__ == "__main__":
+    run_chatbot()
