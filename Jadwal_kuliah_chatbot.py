@@ -1,5 +1,4 @@
-import re
-
+#knowledge base
 knowledge_base = {
     "greeting": {
         "patterns": ["halo", "hai", "selamat pagi", "selamat siang"],
@@ -38,21 +37,3 @@ knowledge_base = {
         ]
     }
 }
-
-FALLBACK_RESPONSE = "Maaf, saya belum memahami pertanyaan Anda. Bisa dijelaskan dengan kalimat lain?"
-
-def preprocess(text):
-    text = text.lower()
-    text = re.sub(r"[^\w\s]", "", text)
-    return text.strip()
-
-
-def match_intent(user_input):
-    processed = preprocess(user_input)
-
-    for intent, data in knowledge_base.items():
-        for pattern in data["patterns"]:
-            if pattern in processed:
-                return intent
-
-    return None
