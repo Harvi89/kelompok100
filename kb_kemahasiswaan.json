@@ -1,0 +1,68 @@
+
+{
+  "knowledge_base": [
+    {
+      "id": "kemahasiswaan_001",
+      "category": "beasiswa",
+      "content": "Beasiswa merupakan bantuan biaya pendidikan yang diberikan kepada mahasiswa berdasarkan persyaratan tertentu, seperti prestasi akademik atau kondisi ekonomi.",
+      "patterns": [
+        "Apa itu beasiswa?",
+        "Bagaimana cara mendapatkan beasiswa?",
+        "Informasi beasiswa mahasiswa",
+        "Apa saja jenis beasiswa?",
+        "Syarat mendapatkan beasiswa"
+      ],
+      "answer": "Beasiswa merupakan bantuan biaya pendidikan bagi mahasiswa yang memenuhi persyaratan. Informasi mengenai jenis, persyaratan, dan pendaftaran dapat diperoleh melalui bagian kemahasiswaan kampus."
+    },
+    {
+      "id": "kemahasiswaan_002",
+      "category": "organisasi_mahasiswa",
+      "content": "Organisasi mahasiswa merupakan wadah bagi mahasiswa untuk mengembangkan kemampuan kepemimpinan, komunikasi, kerja sama, dan organisasi.",
+      "patterns": [
+        "Apa itu organisasi mahasiswa?",
+        "Apa manfaat mengikuti organisasi?",
+        "Bagaimana cara bergabung organisasi kampus?",
+        "Organisasi apa saja di kampus?",
+        "Informasi organisasi mahasiswa"
+      ],
+      "answer": "Organisasi mahasiswa merupakan wadah pengembangan diri di lingkungan kampus. Informasi pendaftaran organisasi dapat diperoleh melalui pengurus organisasi atau bagian kemahasiswaan."
+    },
+    {
+      "id": "kemahasiswaan_003",
+      "category": "ukm",
+      "content": "Unit Kegiatan Mahasiswa atau UKM merupakan organisasi yang menjadi wadah pengembangan minat dan bakat mahasiswa dalam bidang tertentu.",
+      "patterns": [
+        "Apa itu UKM?",
+        "Apa kepanjangan UKM kampus?",
+        "Bagaimana cara mengikuti UKM?",
+        "Apa manfaat mengikuti UKM?",
+        "Informasi unit kegiatan mahasiswa"
+      ],
+      "answer": "UKM adalah Unit Kegiatan Mahasiswa yang mewadahi pengembangan minat dan bakat, seperti olahraga, seni, teknologi, dan kegiatan lainnya."
+    },
+    {
+      "id": "kemahasiswaan_004",
+      "category": "administrasi_mahasiswa",
+      "content": "Administrasi kemahasiswaan mencakup berbagai layanan dokumen dan kebutuhan administratif mahasiswa selama menempuh pendidikan.",
+      "patterns": [
+        "Bagaimana mengurus administrasi mahasiswa?",
+        "Di mana mengurus surat mahasiswa?",
+        "Bagaimana cara meminta surat aktif kuliah?",
+        "Informasi layanan administrasi mahasiswa"
+      ],
+      "answer": "Pengurusan administrasi mahasiswa dapat dilakukan melalui bagian administrasi akademik atau kemahasiswaan sesuai jenis dokumen yang diperlukan."
+    },
+    {
+      "id": "kemahasiswaan_005",
+      "category": "kegiatan_mahasiswa",
+      "content": "Kegiatan mahasiswa merupakan aktivitas akademik maupun nonakademik yang bertujuan mengembangkan kemampuan, pengalaman, dan keterampilan mahasiswa.",
+      "patterns": [
+        "Apa saja kegiatan mahasiswa?",
+        "Bagaimana cara mengikuti kegiatan kampus?",
+        "Informasi kegiatan mahasiswa",
+        "Apa manfaat kegiatan mahasiswa?"
+      ],
+      "answer": "Kegiatan mahasiswa dapat berupa seminar, pelatihan, kompetisi, kegiatan sosial, dan kegiatan organisasi. Informasi kegiatan dapat diperoleh melalui pengumuman resmi kampus."
+    }
+  ]
+}
