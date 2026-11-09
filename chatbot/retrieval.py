@@ -1,91 +1,205 @@
-
-import os
+import json
 import re
-import requests
+import random
+from pathlib import Path
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 
-# URL JSON dari GitHub
-KNOWLEDGE_BASE_URL = os.getenv("KNOWLEDGE_BASE_URL")
+# Pengaturan pencarian
+DIRECT_THRESHOLD = 0.45
+MIN_CONTEXT_SCORE = 0.10
+TOP_K = 3
+
+# Lokasi folder data
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "data"
+
+# Empat file Knowledge Base
+KB_FILES = [
+    "kb_jadwal.json",
+    "kb_akademik.json",
+    "kb_kemahasiswaan.json",
+    "kb_informasi_kampus.json"
+]
 
 
 def preprocess(text):
-    """Membersihkan teks pertanyaan."""
-    text = text.lower()
-    text = re.sub(r"[^\w\s]", "", text)
-    return text.strip()
+    """Membersihkan teks sebelum proses pencarian."""
+    text = str(text).lower()
+    text = re.sub(r"[^\w\s]", " ", text)
+    return re.sub(r"\s+", " ", text).strip()
 
 
 def load_knowledge_base():
-    """Mengambil Knowledge Base berbentuk JSON dari GitHub."""
+    """Memuat seluruh Knowledge Base dari empat file JSON."""
 
-    if not KNOWLEDGE_BASE_URL:
-        raise ValueError("KNOWLEDGE_BASE_URL belum diatur di file .env")
+    all_documents = []
 
-    response = requests.get(KNOWLEDGE_BASE_URL, timeout=15)
-    response.raise_for_status()
+    for filename in KB_FILES:
+        file_path = DATA_DIR / filename
 
-    data = response.json()
+        if not file_path.exists():
+            raise FileNotFoundError(
+                f"File Knowledge Base tidak ditemukan: {file_path}"
+            )
 
-    # Mendukung JSON dengan pembungkus knowledge_base
-    if "knowledge_base" in data:
-        data = data["knowledge_base"]
+        with open(file_path, "r", encoding="utf-8") as file:
+            data = json.load(file)
 
-    return data
+        # Mendukung pembungkus knowledge_base
+        if isinstance(data, dict) and "knowledge_base" in data:
+            data = data["knowledge_base"]
+
+        # Format JSON berupa list
+        if isinstance(data, list):
+            for item in data:
+                if not isinstance(item, dict):
+                    continue
+
+                responses = item.get("responses", [])
+                answer = item.get("answer", "")
+
+                if not answer and responses:
+                    answer = random.choice(responses)
+
+                all_documents.append({
+                    "id": item.get("id", ""),
+                    "category": item.get("category", ""),
+                    "content": item.get("content", ""),
+                    "patterns": item.get("patterns", []),
+                    "answer": answer
+                })
+
+        # Mendukung format JSON lama berupa dictionary
+        elif isinstance(data, dict):
+            for intent, item in data.items():
+                if not isinstance(item, dict):
+                    continue
+
+                responses = item.get("responses", [])
+                answer = item.get("answer", "")
+
+                if not answer and responses:
+                    answer = random.choice(responses)
+
+                all_documents.append({
+                    "id": intent,
+                    "category": intent,
+                    "content": item.get("content", answer),
+                    "patterns": item.get("patterns", []),
+                    "answer": answer
+                })
+
+    return all_documents
 
 
-def search_knowledge_base(user_input):
-    """Mencari jawaban yang paling sesuai."""
+def retrieve_documents(user_question):
+    """
+    Mencari dokumen menggunakan TF-IDF dan Cosine Similarity.
 
-    knowledge_base = load_knowledge_base()
-    question = preprocess(user_input)
+    Mode:
+    - direct: jawaban langsung dari Knowledge Base.
+    - context: mengirim Top-K konteks ke LLM.
+    - none: tidak ditemukan konteks relevan.
+    """
 
-    patterns = []
-    intents = []
+    documents = load_knowledge_base()
 
-    # Mengumpulkan semua pola pertanyaan
-    for intent, data in knowledge_base.items():
-        for pattern in data.get("patterns", []):
-            patterns.append(preprocess(pattern))
-            intents.append(intent)
+    question = preprocess(user_question)
 
-    if not patterns:
-        return None
+    if not question or not documents:
+        return {
+            "mode": "none",
+            "answer": None,
+            "contexts": []
+        }
 
-    # Periksa kecocokan langsung terlebih dahulu
-    for intent, data in knowledge_base.items():
-        for pattern in data.get("patterns", []):
-            clean_pattern = preprocess(pattern)
+    searchable_texts = []
 
-            if clean_pattern and clean_pattern in question:
-                responses = data.get("responses", [])
-                if responses:
-                    import random
-                    return random.choice(responses)
+    for document in documents:
+        patterns = document.get("patterns", [])
 
-    # Menggunakan TF-IDF dan Cosine Similarity
-    vectorizer = TfidfVectorizer()
-    vectors = vectorizer.fit_transform(patterns + [question])
+        if not isinstance(patterns, list):
+            patterns = []
 
-    similarity = cosine_similarity(
-        vectors[-1],
-        vectors[:-1]
-    ).flatten()
+        searchable = " ".join([
+            str(document.get("content", "")),
+            str(document.get("answer", "")),
+            str(document.get("category", "")),
+            *[str(pattern) for pattern in patterns]
+        ])
 
-    best_index = similarity.argmax()
-    best_score = similarity[best_index]
+        searchable_texts.append(preprocess(searchable))
 
-    # Batas minimal kemiripan
-    if best_score < 0.25:
-        return None
+    try:
+        vectorizer = TfidfVectorizer()
 
-    best_intent = intents[best_index]
-    responses = knowledge_base[best_intent].get("responses", [])
+        vectors = vectorizer.fit_transform(
+            searchable_texts + [question]
+        )
 
-    if not responses:
-        return None
+        similarities = cosine_similarity(
+            vectors[-1],
+            vectors[:-1]
+        ).flatten()
 
-    import random
-    return random.choice(responses)
+    except ValueError:
+        return {
+            "mode": "none",
+            "answer": None,
+            "contexts": []
+        }
+
+    # Mengurutkan dokumen berdasarkan skor tertinggi
+    ranked_indices = similarities.argsort()[::-1]
+
+    best_index = int(ranked_indices[0])
+    best_score = float(similarities[best_index])
+
+    # Tahap 1: Jawaban langsung jika skor tinggi
+    if best_score >= DIRECT_THRESHOLD:
+        answer = documents[best_index].get("answer")
+
+        if answer:
+            return {
+                "mode": "direct",
+                "answer": answer,
+                "score": best_score,
+                "contexts": []
+            }
+
+    # Tahap 2: Ambil Top-K konteks jika skor rendah
+    contexts = []
+
+    for index in ranked_indices[:TOP_K]:
+        score = float(similarities[index])
+
+        if score < MIN_CONTEXT_SCORE:
+            continue
+
+        document = documents[int(index)]
+
+        contexts.append({
+            "id": document.get("id"),
+            "category": document.get("category"),
+            "content": document.get("content"),
+            "answer": document.get("answer"),
+            "score": score
+        })
+
+    # Tahap 3: Tidak ada konteks yang relevan
+    if not contexts:
+        return {
+            "mode": "none",
+            "answer": None,
+            "contexts": []
+        }
+
+    return {
+        "mode": "context",
+        "answer": None,
+        "score": best_score,
+        "contexts": contexts
+    }
