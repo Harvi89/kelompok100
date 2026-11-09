@@ -56,3 +56,15 @@ def match_intent(user_input):
                 return intent
 
     return None
+
+import random
+
+def generate_response(intent):
+    if intent is none;
+        return FALLBACK_RESPONSE
+    responses = knowledge_base[intent]["responses"]     
+    return random.choice(responses) 
+
+def get_response(user_input):
+     intent = match_intent(user_input)
+     return generate_response(intent) 
