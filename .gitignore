@@ -1,0 +1,13 @@
+# Python virtual environment
+venv/
+__pycache__/
+*.pyc
+
+# API keys and environment variables
+.env
+
+# Database lokal
+*.db
+
+# VS Code
+.vscode/
