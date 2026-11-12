@@ -1,3 +1,9 @@
+Anggota Kelompok:
+1. Harviansyah Siringo-ringo (25343013)
+2. Christian Andrico Rajagukguk (25343008)
+3. Hilman Fahmi (25343015)
+4. Husnul Zidan (25343016)
+
 # 🤖 Chatbot Akademik Informatika
 
 Chatbot Akademik Informatika merupakan aplikasi chatbot berbasis Artificial Intelligence (AI) yang dirancang untuk membantu mahasiswa memperoleh informasi seputar kegiatan akademik dan lingkungan kampus.
