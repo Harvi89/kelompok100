@@ -1,0 +1,64 @@
+{
+  "knowledge_base": [
+    {
+      "id": "kampus_001",
+      "category": "perpustakaan",
+      "content": "Perpustakaan kampus merupakan fasilitas yang menyediakan berbagai sumber belajar, seperti buku, jurnal, referensi ilmiah, dan bahan bacaan lainnya.",
+      "patterns": [
+        "Apa fungsi perpustakaan kampus?",
+        "Di mana mencari buku referensi?",
+        "Bagaimana cara menggunakan perpustakaan?",
+        "Informasi perpustakaan kampus"
+      ],
+      "answer": "Perpustakaan kampus menyediakan berbagai sumber belajar untuk mendukung kegiatan akademik mahasiswa. Informasi jam operasional dan layanan dapat diperoleh dari pengelola perpustakaan."
+    },
+    {
+      "id": "kampus_002",
+      "category": "wifi_kampus",
+      "content": "Wi-Fi kampus merupakan fasilitas jaringan internet nirkabel yang disediakan untuk mendukung kegiatan belajar dan aktivitas akademik mahasiswa.",
+      "patterns": [
+        "Apakah kampus menyediakan Wi-Fi?",
+        "Bagaimana cara menggunakan Wi-Fi kampus?",
+        "Cara menghubungkan internet kampus",
+        "Informasi jaringan Wi-Fi kampus"
+      ],
+      "answer": "Wi-Fi kampus merupakan fasilitas internet untuk mendukung kegiatan akademik. Silakan tanyakan kepada bagian teknologi informasi kampus mengenai nama jaringan dan akun akses."
+    },
+    {
+      "id": "kampus_003",
+      "category": "laboratorium",
+      "content": "Laboratorium komputer merupakan fasilitas pembelajaran yang digunakan mahasiswa untuk melakukan praktikum, pemrograman, dan kegiatan penelitian.",
+      "patterns": [
+        "Apa fungsi laboratorium komputer?",
+        "Di mana laboratorium komputer?",
+        "Bagaimana cara menggunakan laboratorium?",
+        "Informasi lab komputer"
+      ],
+      "answer": "Laboratorium komputer digunakan untuk kegiatan praktikum, pemrograman, dan pembelajaran berbasis komputer. Informasi lokasi dan jadwal penggunaannya dapat diperoleh dari pengelola laboratorium."
+    },
+    {
+      "id": "kampus_004",
+      "category": "fasilitas_kampus",
+      "content": "Fasilitas kampus merupakan sarana dan prasarana yang disediakan untuk mendukung kegiatan pendidikan, penelitian, dan aktivitas mahasiswa.",
+      "patterns": [
+        "Apa saja fasilitas kampus?",
+        "Fasilitas apa yang tersedia di kampus?",
+        "Informasi sarana kampus",
+        "Apa saja sarana untuk mahasiswa?"
+      ],
+      "answer": "Fasilitas kampus dapat mencakup ruang kelas, laboratorium, perpustakaan, area belajar, dan sarana pendukung lainnya. Ketersediaan fasilitas mengikuti kebijakan kampus."
+    },
+    {
+      "id": "kampus_005",
+      "category": "lokasi_kampus",
+      "content": "Informasi lokasi kampus mencakup alamat gedung, ruang perkuliahan, laboratorium, kantor administrasi, dan fasilitas lainnya.",
+      "patterns": [
+        "Di mana lokasi gedung kampus?",
+        "Bagaimana mencari lokasi ruang kuliah?",
+        "Di mana kantor administrasi?",
+        "Informasi lokasi fasilitas kampus"
+      ],
+      "answer": "Untuk mengetahui lokasi gedung dan fasilitas kampus secara tepat, silakan gunakan denah kampus atau tanyakan kepada petugas informasi kampus."
+    }
+  ]
+}
